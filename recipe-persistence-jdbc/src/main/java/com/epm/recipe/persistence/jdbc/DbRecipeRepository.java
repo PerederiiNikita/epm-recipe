@@ -3,14 +3,9 @@ package com.epm.recipe.persistence.jdbc;
 import com.epm.recipe.domain.Recipe;
 import com.epm.recipe.persistence.RecipeRepository;
 import com.epm.recipe.persistence.jdbc.exception.JdbcPersistenceException;
-import com.epm.recipe.persistence.jdbc.exception.RecipeNotFoundException;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,9 +50,6 @@ public class DbRecipeRepository implements RecipeRepository {
             }
         } catch (SQLException e) {
             throw new JdbcPersistenceException(e.getMessage());
-        }
-        if (recipe == null) {
-            throw new RecipeNotFoundException("Recipe not found by id: " + id);
         }
         return recipe;
     }

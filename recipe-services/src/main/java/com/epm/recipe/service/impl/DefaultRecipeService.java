@@ -32,7 +32,7 @@ public class DefaultRecipeService implements RecipeService {
 
     @Override
     public Optional<Recipe> getById(long id) {
-        return Optional.of(recipeRepository.findById(id));
+        return Optional.ofNullable(recipeRepository.findById(id));
     }
 
 }
