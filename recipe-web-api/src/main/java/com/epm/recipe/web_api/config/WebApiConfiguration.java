@@ -1,6 +1,7 @@
 package com.epm.recipe.web_api.config;
 
 import com.epm.recipe.service.RecipeService;
+import com.epm.recipe.web_api.advice.ExceptionControllerAdvice;
 import com.epm.recipe.web_api.advice.OptionalResponseControllerAdvice;
 import com.epm.recipe.web_api.controller.RestRecipeController;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,11 @@ public class WebApiConfiguration {
     @Bean
     OptionalResponseControllerAdvice optionalResponseControllerAdvice() {
         return new OptionalResponseControllerAdvice();
+    }
+
+    @Bean
+    ExceptionControllerAdvice exceptionControllerAdvice() {
+        return new ExceptionControllerAdvice();
     }
 
 }
